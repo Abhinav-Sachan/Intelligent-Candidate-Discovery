@@ -47,11 +47,11 @@ def main():
     # -----------------------------
     # Export Results
     # -----------------------------
-    print("Exporting CSV...")
+    print("Exporting Excel...")
 
     export_rankings(ranked_candidates)
 
-    print("CSV exported successfully.")
+    print("Excel exported successfully.")
     print()
 
     print("Project completed successfully!")
