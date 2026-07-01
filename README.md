@@ -1,10 +1,43 @@
 # Intelligent Candidate Discovery
 
-## AI-Powered Candidate Ranking System
+### AI-Powered Candidate Ranking System using Semantic Matching and Explainable Scoring
 
-An intelligent recruitment system that ranks job candidates using semantic analysis, structured profile evaluation, recruiter signals, and explainable AI scoring.
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Dataset](https://img.shields.io/badge/Dataset-100K%20Candidates-red)
+![AI](https://img.shields.io/badge/AI-Explainable%20Ranking-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Instead of relying on simple keyword matching, the system analyzes candidate experience, skills, career history, profile quality, and recruiter engagement signals to identify the most suitable candidates for a given job description.
+---
+
+# Overview
+
+Intelligent Candidate Discovery is an AI-powered recruitment system that ranks job candidates using semantic analysis, structured profile evaluation, recruiter engagement signals, and explainable AI scoring.
+
+Instead of relying solely on keyword matching, the system evaluates candidate experience, technical skills, career history, profile quality, and recruiter signals to identify the most suitable candidates for a given job description.
+
+The project is designed to efficiently process **large-scale recruitment datasets containing up to 100,000 candidate profiles** while providing transparent explanations for every ranking decision.
+
+---
+
+# Table of Contents
+
+* Overview
+* Problem Statement
+* Features
+* Scoring Methodology
+* Project Architecture
+* Project Structure
+* Technologies Used
+* Installation
+* Running the Project
+* Example Output
+* Output
+* Scalability
+* Future Improvements
+* Dataset
+* Author
+* License
 
 ---
 
@@ -19,65 +52,68 @@ Traditional Applicant Tracking Systems (ATS) primarily rely on keyword matching,
 * Ignore contextual experience
 * Provide little or no explanation for rankings
 
-This project addresses these challenges by combining semantic matching with a multi-factor scoring engine to produce explainable candidate rankings.
+This project addresses these challenges by combining semantic matching with a multi-factor scoring engine to produce transparent and explainable candidate rankings.
 
 ---
 
 # Features
 
-* Reads Job Description from a DOCX file
-* Supports datasets containing up to 100,000 candidates
-* Parses candidate profiles from JSON and JSONL formats
-* Extracts job requirements automatically
+* Reads Job Descriptions from a DOCX file
+* Supports datasets containing up to **100,000 candidate profiles**
+* Parses candidate profiles from both JSON and JSONL formats
+* Automatically extracts job requirements
 * Performs semantic skill matching
-* Scores candidates using multiple independent modules
+* Scores candidates using five independent scoring modules
 * Generates recruiter-friendly explanations
 * Exports ranked candidates to CSV
-* Modular and scalable architecture
+* Modular and scalable Python architecture
 
 ---
 
 # Scoring Methodology
 
-Each candidate receives a score based on five independent components.
+Each candidate receives a score based on five independent evaluation modules.
 
-| Module            | Purpose                                    | Maximum Score |
-| ----------------- | ------------------------------------------ | ------------: |
-| Experience        | Relevant years of experience               |            20 |
-| Skills            | Technical and domain skill matching        |            20 |
-| Career            | Career progression and relevance           |            20 |
-| Profile           | Profile completeness and semantic evidence |            20 |
-| Recruiter Signals | Recruiter engagement and activity          |            20 |
+| Module            | Purpose                             | Maximum Score |
+| ----------------- | ----------------------------------- | ------------: |
+| Experience        | Relevant years of experience        |            20 |
+| Skills            | Technical and domain skill matching |            20 |
+| Career            | Career progression and relevance    |            20 |
+| Profile           | Semantic profile evaluation         |            20 |
+| Recruiter Signals | Recruiter engagement and activity   |            20 |
 
-**Maximum Total Score:** 100
+**Maximum Total Score: 100**
 
 ---
 
 # Project Architecture
 
 ```text
-Job Description (.docx)
-        │
-        ▼
-Job Requirement Extraction
-        │
-        ▼
-Candidate Parser
-        │
-        ▼
-Semantic Evidence Extraction
-        │
-        ▼
-Scoring Engine
-        │
-        ▼
-Candidate Ranking
-        │
-        ▼
-Explanation Generator
-        │
-        ▼
-CSV Export
+                    Job Description (.docx)
+                              │
+                              ▼
+              Job Requirement Extraction
+                              │
+                              ▼
+                  Candidate Data Parser
+                              │
+                              ▼
+              Semantic Evidence Extraction
+                              │
+                              ▼
+                     Scoring Engine
+        ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+        │Experience│  Skills  │ Career   │ Profile  │ Signals  │
+        └──────────┴──────────┴──────────┴──────────┴──────────┘
+                              │
+                              ▼
+                  Candidate Ranking Engine
+                              │
+                              ▼
+                Explanation Generator
+                              │
+                              ▼
+                      CSV Export Output
 ```
 
 ---
@@ -87,10 +123,10 @@ CSV Export
 ```text
 Intelligent-Candidate-Discovery/
 │
-├── Data/
-│   ├── candidates.jsonl
+├── data/
 │   ├── sample_candidates.json
-│   └── job_description.docx
+│   ├── job_description.docx
+│   └── candidates.jsonl (local only)
 │
 ├── output/
 │   └── ranked_candidates.csv
@@ -112,6 +148,8 @@ Intelligent-Candidate-Discovery/
 ├── main.py
 ├── parser.py
 ├── scorer.py
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
@@ -123,43 +161,99 @@ Intelligent-Candidate-Discovery/
 * JSON / JSONL
 * python-docx
 * CSV
+* Rule-Based AI
+* Semantic Matching
+* Explainable AI
 * Modular Software Design
 
 ---
 
-# How to Run
+# Installation
 
-### Install dependencies
+Clone the repository:
 
 ```bash
-pip install python-docx
+git clone https://github.com/Abhinav-Sachan/Intelligent-Candidate-Discovery.git
 ```
 
-### Run the project
+Move into the project directory:
+
+```bash
+cd Intelligent-Candidate-Discovery
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Running the Project
+
+Execute the following command:
 
 ```bash
 python main.py
+```
+
+The application will:
+
+* Load candidate profiles
+* Load the job description
+* Extract job requirements
+* Score every candidate
+* Rank all candidates
+* Generate recruiter-friendly explanations
+* Export the final rankings to:
+
+```text
+output/ranked_candidates.csv
+```
+
+---
+
+# Example Output
+
+```text
+Loading candidates...
+100000 candidates loaded.
+
+Loading Job Description...
+Job Description loaded.
+
+Ranking candidates...
+Ranking completed.
+
+Exporting CSV...
+CSV exported successfully.
+
+Project completed successfully!
 ```
 
 ---
 
 # Output
 
-The system generates:
+The generated CSV contains:
 
-* Ranked candidate list
-* Individual module scores
-* Overall score
-* Recruiter-friendly explanation
-* CSV export in the `output/` folder
+* Candidate Rank
+* Candidate ID
+* Current Job Title
+* Company
+* Experience
+* Individual Module Scores
+* Total Score
+* Explainable Ranking Summary
 
 ---
 
 # Scalability
 
-The system has been successfully tested on a dataset containing **100,000 candidate profiles**.
+The system has been successfully tested on a dataset containing approximately **100,000 candidate profiles**.
 
-The modular architecture makes it easy to extend with:
+Its modular architecture makes it easy to extend with:
 
 * Machine Learning models
 * Large Language Models (LLMs)
@@ -167,30 +261,45 @@ The modular architecture makes it easy to extend with:
 * Resume embeddings
 * Vector search
 * Cloud deployment
-* API integration
+* REST APIs
 
 ---
 
 # Future Improvements
 
+Possible future enhancements include:
+
 * LLM-assisted candidate evaluation
 * Resume PDF parsing
 * Embedding-based semantic search
-* Web dashboard
+* Interactive web dashboard
 * Recruiter analytics
 * REST API
+* Docker deployment
 * Real-time candidate recommendations
+
+---
+
+# Dataset
+
+This project was developed and tested using a dataset containing approximately **100,000 candidate profiles**.
+
+Due to GitHub's **100 MB file size limit**, the complete dataset is **not included** in this repository.
+
+A smaller sample dataset (`sample_candidates.json`) is included for demonstration and testing purposes.
 
 ---
 
 # Author
 
-Developed as a hackathon project demonstrating AI-assisted candidate discovery, semantic matching, and explainable recruitment ranking.
+**Abhinav Sachan**
 
-## Dataset
+GitHub: https://github.com/Abhinav-Sachan
 
-This project was developed and tested using a dataset of approximately **100,000 candidate profiles**.
+Developed as a hackathon project demonstrating AI-assisted candidate discovery, semantic matching, scalable candidate ranking, and explainable recruitment systems.
 
-The full dataset is **not included in this repository** because it exceeds GitHub's file size limit (100 MB).
+---
 
-The repository includes a small sample dataset (`sample_candidates.json`) for testing and demonstration purposes.
+# License
+
+This project is intended for educational purposes and hackathon submissions.
