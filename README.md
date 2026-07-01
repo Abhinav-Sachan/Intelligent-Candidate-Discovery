@@ -186,3 +186,11 @@ The modular architecture makes it easy to extend with:
 # Author
 
 Developed as a hackathon project demonstrating AI-assisted candidate discovery, semantic matching, and explainable recruitment ranking.
+
+## Dataset
+
+This project was developed and tested using a dataset of approximately **100,000 candidate profiles**.
+
+The full dataset is **not included in this repository** because it exceeds GitHub's file size limit (100 MB).
+
+The repository includes a small sample dataset (`sample_candidates.json`) for testing and demonstration purposes.
